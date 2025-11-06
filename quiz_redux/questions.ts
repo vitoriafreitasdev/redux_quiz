@@ -1,35 +1,85 @@
+
 const data = [
   {
-    question: "O que é Vanilla JavaScript?",
+    question: "O que é JSX no React?",
     options: [
-      "JavaScript puro",
-      "Uma biblioteca JavaScript",
-      "Um framework JavaScript",
-      "Um compilador de JavaScript",
+      "Uma extensão de sintaxe para JavaScript",
+      "Um novo tipo de banco de dados",
+      "Uma biblioteca de estilização",
+      "Um pré-processador CSS"
     ],
-    answer: "JavaScript puro",
+    answer: "Uma extensão de sintaxe para JavaScript",
   },
   {
-    question: "Com qual instrução declaramos uma constante em JavaScript?",
-    options: ["const", "let", "var", "define"],
-    answer: "const",
+    question: "Qual hook do React é usado para gerenciar estado em componentes funcionais?",
+    options: ["useEffect", "useState", "useContext", "useReducer"],
+    answer: "useState",
   },
   {
-    question: "Qual dos tipos de dado a seguir não existe em JavaScript?",
-    options: ["string", "number", "boolean", "float"],
-    answer: "float",
+    question: "O que significa CSS?",
+    options: [
+      "Computer Style Sheets",
+      "Creative Style System",
+      "Cascading Style Sheets",
+      "Colorful Style Sheets"
+    ],
+    answer: "Cascading Style Sheets",
   },
   {
-    question: "Qual dos métodos a seguir seleciona um elemento?",
-    options: ["querySelector", "parseInt", "sort", "reduce"],
-    answer: "querySelector",
+    question: "Qual método HTTP é usado para enviar dados em uma requisição?",
+    options: ["GET", "POST", "DELETE", "PUT"],
+    answer: "POST",
   },
   {
-    question:
-      "Qual destas propriedades da a quantidade de elementos de um array?",
-    options: ["qty", "length", "items", "index"],
-    answer: "length",
+    question: "Qual é o propósito principal do TypeScript?",
+    options: [
+      "Substituir completamente o JavaScript",
+      "Adicionar tipagem estática ao JavaScript",
+      "Melhorar o desempenho do JavaScript",
+      "Criar animações mais complexas"
+    ],
+    answer: "Adicionar tipagem estática ao JavaScript",
   },
+  {
+    question: "O que é um componente em React?",
+    options: [
+      "Uma função ou classe que retorna elementos UI",
+      "Um arquivo de configuração",
+      "Um tipo de banco de dados",
+      "Um servidor web"
+    ],
+    answer: "Uma função ou classe que retorna elementos UI",
+  },
+  {
+    question: "Qual tag HTML é usada para criar um link?",
+    options: ["<link>", "<a>", "<href>", "<url>"],
+    answer: "<a>",
+  },
+  {
+    question: "O que é npm?",
+    options: [
+      "Node Package Manager",
+      "New Project Manager",
+      "Network Protocol Module",
+      "Native Program Manager"
+    ],
+    answer: "Node Package Manager",
+  },
+  {
+    question: "Qual framework é conhecido por 'escreve uma vez, execute em qualquer lugar'?",
+    options: ["React Native", "Flutter", "Ionic", "Xamarin"],
+    answer: "React Native",
+  },
+  {
+    question: "O que é Git?",
+    options: [
+      "Um sistema de controle de versão",
+      "Uma linguagem de programação",
+      "Um editor de código",
+      "Um servidor web"
+    ],
+    answer: "Um sistema de controle de versão",
+  }
 ];
 
 export default data;
