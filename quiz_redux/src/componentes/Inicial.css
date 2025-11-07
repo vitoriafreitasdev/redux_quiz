@@ -1,0 +1,29 @@
+.inicial{
+    height: 100vh;
+    background-image: url("../imgs/imagem.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inicial h2{
+    margin: 1rem;
+    background-color: rgba(70, 69, 69, 0.212);
+    color: #fff;
+    padding: 0.5rem;
+}
+.buttonIniciar{
+    padding: 1rem;
+    width: 250px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    background-color: rgb(62, 183, 253);
+}
+
+.buttonIniciar:hover{
+    background-color: rgb(55, 171, 238);
+}
