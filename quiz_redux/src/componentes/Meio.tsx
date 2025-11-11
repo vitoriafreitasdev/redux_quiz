@@ -1,52 +1,47 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
+import "./Meio.css"
 import { useDispatch, useSelector } from "react-redux"
 import { type AppDispatch, type RootState } from "../redux/store.ts"
+import { goToEnd, selectAnswer } from "../redux/slices/quizSlice.ts"
 
-import { selectAnswer } from "../redux/slices/quizSlice.ts"
-import { useState } from "react"
 
 const Meio = () => {
   const dispatch = useDispatch<AppDispatch>()  
   const questions = useSelector((state: RootState) => state.quiz.questions)
-  const corretas = useSelector((state: RootState) => state.quiz.correctAnswer)
-  const erradas = useSelector((state: RootState) => state.quiz.wrongAnswer)
-  const answers = useSelector((state: RootState) => state.quiz.answersSelects)
+  const message = useSelector((state: RootState) => state.quiz.message)
 
-
-
-
-  // console.log(corretas, erradas)
   const checkingAwswer = (question: string, answer: string) => {
     dispatch(selectAnswer({question: question, answer: answer}))   
     
   }
 
-  console.log(answers)
   return (
-    <div>
-      {questions.map((question, questionIndex) => (
-        <div key={questionIndex}>
-          <h2>{question.question}</h2>
-          <div >
-            {question.options.map((option, optionIndex) => (
-              <div key={optionIndex}>
-                <input 
-                  type="radio" 
-                  name={`${questionIndex}`} 
-                  id={`${questionIndex}${optionIndex}`}
-                  value={option}
-                  onChange={() => checkingAwswer(question.question, option)}
-                />
-                <label htmlFor={`${questionIndex}${optionIndex}`}>
-                  {option}
-                </label>
-              </div>
-            ))}
+    <div className="main-div">
+      <div className="quests-div">
+        <h3>Questões</h3>
+        {questions.map((question, questionIndex) => (
+          <div key={questionIndex} className="quest">
+            <h2>{question.question}</h2>
+              {question.options.map((option, optionIndex) => (
+                <div key={optionIndex} className="options">
+                  <input 
+                    type="radio" 
+                    name={`${questionIndex}`} 
+                    id={`${questionIndex}${optionIndex}`}
+                    value={option}
+                    onChange={() => checkingAwswer(question.question, option)}
+                  />
+                  <label htmlFor={`${questionIndex}${optionIndex}`}>
+                    {option}
+                  </label>
+                </div>
+              ))}
           </div>
+        ))}
+        {message.length > 0 && <p className="message">{message}</p>}
+        <button onClick={() => dispatch(goToEnd())} className="finish-btn">Finalizar</button>
+
         </div>
-      ))}
-      <button>Finalizar</button>
     </div>
   )
 }

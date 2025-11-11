@@ -21,13 +21,16 @@ interface inicialState {
     correctAnswer: number
     wrongAnswer: number
     answersSelects: answers[] 
+    message: string
 }
 const inicialState: inicialState = {
     gamestages: stages[0],
     questions: data,
     correctAnswer: 0,
     wrongAnswer: 0,
-    answersSelects: []
+    answersSelects: [],
+    message: ""
+
 }
 
 const quizSlice = createSlice({
@@ -55,11 +58,29 @@ const quizSlice = createSlice({
                 // Se já existe, substitui a resposta existente
                 state.answersSelects[existingAnswerIndex].answer = answer
             }
-        
-           
+        },
+        goToEnd: (state) => {
+            if(state.answersSelects.length === 10){
+                state.gamestages = stages[2]
+            } else {
+                state.message = "Responda todas as questões."
+            }
+        },
+        correctingAnswers: (state) => {
+            state.correctAnswer = 0
+            state.wrongAnswer = 0
+
+            for(let i = 0; i < state.questions.length; i++){
+                if(state.questions[i].answer === state.answersSelects[i].answer){
+                    state.correctAnswer += 1
+                }else{
+                    state.wrongAnswer += 1
+                    console.log("Errou a ", i)
+                }
+            }
         }
     }
 
 })
-export const {startGame, selectAnswer} = quizSlice.actions
+export const {startGame, selectAnswer, goToEnd, correctingAnswers} = quizSlice.actions
 export default quizSlice.reducer
