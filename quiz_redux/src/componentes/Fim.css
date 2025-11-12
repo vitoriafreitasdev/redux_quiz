@@ -1,3 +1,4 @@
+
 .results-container{
     background-color: rgb(46, 46, 46);
     height: 100vh;
@@ -13,19 +14,46 @@
     height: 30%;
     border-radius: 0.5rem;
     text-align: center;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .results-container div h2 {
-    margin: 5rem 0 0.3rem 0;
+    border-bottom: 2px solid #fff;
+    margin: 3rem 0 2rem 0;
+    width: 100%; 
+    text-align: center; 
 }
 
-.results-container div p {
+.results-container div table{
     margin: 0.3rem;
-}
+    background-color: #fff;
+    padding: 0.1rem;
 
-@media (max-width: 400px){
+}
+.title{
+    background-color: rgb(59, 122, 122);
+    color: #fff;
+}
+.title th{
+    padding: 0.3rem;
+}
+.content{
+    background-color: rgb(193, 241, 255);
+}
+.erradas, .acertos{
+    font-weight: bolder;
+}
+.erradas{
+    color: red;
+}
+.acertos{
+    color: green;
+}
+@media (max-width: 600px){
     .results-container div{
-        width: 60%;
+        width: 85%;
         height: 40%;
     }
 }

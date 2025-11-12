@@ -22,6 +22,7 @@ interface inicialState {
     wrongAnswer: number
     answersSelects: answers[] 
     message: string
+    porcentagemDeAcerto: number
 }
 const inicialState: inicialState = {
     gamestages: stages[0],
@@ -29,7 +30,8 @@ const inicialState: inicialState = {
     correctAnswer: 0,
     wrongAnswer: 0,
     answersSelects: [],
-    message: ""
+    message: "",
+    porcentagemDeAcerto: 0
 
 }
 
@@ -78,6 +80,11 @@ const quizSlice = createSlice({
                     console.log("Errou a ", i)
                 }
             }
+
+            // formula de conta de porcetagem Porcentagem = (Parte / Total) × 100
+
+            const acertoPorcetagem = (state.correctAnswer / state.questions.length) * 100
+            state.porcentagemDeAcerto = acertoPorcetagem 
         }
     }
 
