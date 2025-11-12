@@ -2,7 +2,7 @@
 import "./Fim.css"
 import { useDispatch, useSelector } from "react-redux"
 import { type AppDispatch, type RootState } from "../redux/store.ts"
-import { correctingAnswers } from "../redux/slices/quizSlice.ts"
+import { backToStart, correctingAnswers } from "../redux/slices/quizSlice.ts"
 import { useEffect } from "react"
 
 const Fim = () => {
@@ -34,6 +34,7 @@ const Fim = () => {
               <td className="acertos">{porcetagemAcerto}%</td>
             </tr>
           </table>
+          <button className="backToHome" onClick={() => dispatch(backToStart())}>Voltar para o início</button>
         </div>
     </div>
   )

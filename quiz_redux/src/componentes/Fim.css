@@ -51,9 +51,20 @@
 .acertos{
     color: green;
 }
+
+.backToHome{
+    padding: 0.3rem;
+    margin: 0.2rem;
+    border: 1px solid black;
+    background-color: #ffffffa8;
+    cursor: pointer;
+}
+
+
 @media (max-width: 600px){
     .results-container div{
         width: 85%;
         height: 40%;
+        
     }
 }

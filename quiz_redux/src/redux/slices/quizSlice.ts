@@ -1,6 +1,7 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../questionsQuiz/questions.ts"
+import pythonQuest from "../questionsPython/questionsPy.ts";
 
 const stages: string[] = ["inicial", "meio", "fim"]
 
@@ -17,7 +18,7 @@ interface answers {
 
 interface inicialState {
     gamestages: string
-    questions: questions[]
+    questions: questions[] | null
     correctAnswer: number
     wrongAnswer: number
     answersSelects: answers[] 
@@ -26,7 +27,7 @@ interface inicialState {
 }
 const inicialState: inicialState = {
     gamestages: stages[0],
-    questions: data,
+    questions: null,
     correctAnswer: 0,
     wrongAnswer: 0,
     answersSelects: [],
@@ -39,7 +40,13 @@ const quizSlice = createSlice({
     name: "createSlice",
     initialState: inicialState,
     reducers: {
-        startGame: (state) => {
+        startGame: (state, action) => {
+            if(action.payload === "python"){
+                state.questions = pythonQuest
+            } else {
+                state.questions = data
+            }
+
             state.gamestages = stages[1]
         },
         selectAnswer: (state, action) => {
@@ -62,32 +69,39 @@ const quizSlice = createSlice({
             }
         },
         goToEnd: (state) => {
-            if(state.answersSelects.length === 10){
+            if(state.questions){
+                if(state.answersSelects.length === state.questions.length){
                 state.gamestages = stages[2]
-            } else {
-                state.message = "Responda todas as questões."
+                } else {
+                    state.message = "Responda todas as questões."
+                }
             }
         },
         correctingAnswers: (state) => {
             state.correctAnswer = 0
             state.wrongAnswer = 0
 
-            for(let i = 0; i < state.questions.length; i++){
-                if(state.questions[i].answer === state.answersSelects[i].answer){
-                    state.correctAnswer += 1
-                }else{
-                    state.wrongAnswer += 1
-                    console.log("Errou a ", i)
+            if(state.questions){
+                for(let i = 0; i < state.questions.length; i++){
+                    if(state.questions[i].answer === state.answersSelects[i].answer){
+                        state.correctAnswer += 1
+                    }else{
+                        state.wrongAnswer += 1
+                        console.log("Errou a ", i)
+                    }
                 }
+
+                // formula de conta de porcetagem Porcentagem = (Parte / Total) × 100
+
+                const acertoPorcetagem = (state.correctAnswer / state.questions.length) * 100
+                state.porcentagemDeAcerto = Math.round(acertoPorcetagem) 
             }
-
-            // formula de conta de porcetagem Porcentagem = (Parte / Total) × 100
-
-            const acertoPorcetagem = (state.correctAnswer / state.questions.length) * 100
-            state.porcentagemDeAcerto = acertoPorcetagem 
+        },
+        backToStart: (state) => {
+            state.gamestages = stages[0]
         }
     }
 
 })
-export const {startGame, selectAnswer, goToEnd, correctingAnswers} = quizSlice.actions
+export const {startGame, selectAnswer, goToEnd, correctingAnswers, backToStart} = quizSlice.actions
 export default quizSlice.reducer
