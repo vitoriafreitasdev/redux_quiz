@@ -40,7 +40,7 @@ const quizSlice = createSlice({
     name: "createSlice",
     initialState: inicialState,
     reducers: {
-        startGame: (state, action) => {
+        startGame: (state, action) => {     
             if(action.payload === "python"){
                 state.questions = pythonQuest
             } else {
@@ -70,6 +70,7 @@ const quizSlice = createSlice({
         },
         goToEnd: (state) => {
             if(state.questions){
+                
                 if(state.answersSelects.length === state.questions.length){
                 state.gamestages = stages[2]
                 } else {
@@ -87,7 +88,6 @@ const quizSlice = createSlice({
                         state.correctAnswer += 1
                     }else{
                         state.wrongAnswer += 1
-                        console.log("Errou a ", i)
                     }
                 }
 
@@ -99,6 +99,10 @@ const quizSlice = createSlice({
         },
         backToStart: (state) => {
             state.gamestages = stages[0]
+            state.questions = null
+            state.answersSelects = []
+            state.message = ""
+
         }
     }
 
