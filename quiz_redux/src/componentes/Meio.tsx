@@ -10,8 +10,8 @@ const Meio = () => {
   const questions = useSelector((state: RootState) => state.quiz.questions)
   const message = useSelector((state: RootState) => state.quiz.message)
 
-  const checkingAwswer = (question: string, answer: string) => {
-    dispatch(selectAnswer({question: question, answer: answer}))   
+  const checkingAwswer = (question: string, answer: string, number: number) => {
+    dispatch(selectAnswer({question: question, answer: answer, number: number}))   
     
   }
 
@@ -21,7 +21,8 @@ const Meio = () => {
         <h3>Questões</h3>
         {questions && questions.map((question, questionIndex) => (
           <div key={questionIndex} className="quest">
-            <h2>{question.question}</h2>
+            <h2>{question.number}.</h2>
+            <h3>{question.question}</h3>
               {question.options.map((option, optionIndex) => (
                 <div key={optionIndex} className="options">
                   <input 
@@ -29,7 +30,7 @@ const Meio = () => {
                     name={`${questionIndex}`} 
                     id={`${questionIndex}${optionIndex}`}
                     value={option}
-                    onChange={() => checkingAwswer(question.question, option)}
+                    onChange={() => checkingAwswer(question.question, option, question.number)}
                   />
                   <label htmlFor={`${questionIndex}${optionIndex}`}>
                     {option}

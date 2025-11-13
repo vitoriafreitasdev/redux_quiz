@@ -20,14 +20,12 @@ const Fim = () => {
     <div className="results-container">
         <div>
           <h2>Resultados Finais</h2>
-          <p className="line"></p>
           <table>
             <tr className="title">
               <th><strong>Questões erradas</strong> </th>
               <th><strong>Questões acertadas</strong></th>
               <th><strong>Porcentagem de acerto</strong></th>
             </tr>
-            <p className="line"></p>
             <tr className="content">
               <td className="erradas">{wrongAnswer}</td>
               <td className="acertos">{correctAnswer}</td>

@@ -6,12 +6,14 @@ import pythonQuest from "../questionsPython/questionsPy.ts";
 const stages: string[] = ["inicial", "meio", "fim"]
 
 interface questions {
+    number: number,
     question: string,
     options: string[],
     answer: string
 }
 
 interface answers {
+    number: number
     question: string
     answer: string
 }
@@ -54,7 +56,8 @@ const quizSlice = createSlice({
 
             const question: string = action.payload.question
             const answer: string = action.payload.answer
-            
+            const number: number = action.payload.number
+
             // Encontra o índice da resposta existente para esta pergunta
             const existingAnswerIndex = state.answersSelects.findIndex(
                 item => item.question === question
@@ -62,7 +65,7 @@ const quizSlice = createSlice({
             
             if (existingAnswerIndex === -1) {
                 // Se não existe, adiciona a nova resposta
-                state.answersSelects.push({question, answer})
+                state.answersSelects.push({number, question, answer})
             } else {
                 // Se já existe, substitui a resposta existente
                 state.answersSelects[existingAnswerIndex].answer = answer
@@ -81,17 +84,20 @@ const quizSlice = createSlice({
         correctingAnswers: (state) => {
             state.correctAnswer = 0
             state.wrongAnswer = 0
-
+            const questõesOrdenadas = state.answersSelects.sort((a, b) => a.number - b.number)
             if(state.questions){
                 for(let i = 0; i < state.questions.length; i++){
-                    if(state.questions[i].answer === state.answersSelects[i].answer){
+                    console.log("Resposta ", state.questions[i].answer)
+                    console.log("A Selecionada ", questõesOrdenadas[i].answer)
+                    if(state.questions[i].answer === questõesOrdenadas[i].answer){
                         state.correctAnswer += 1
-                    }else{
+                    }else if(state.questions[i].answer !== questõesOrdenadas[i].answer){
                         state.wrongAnswer += 1
+                    }else{
+                        state.message = "Algo deu errado"
+                        console.log("Deu erro")
                     }
                 }
-
-                // formula de conta de porcetagem Porcentagem = (Parte / Total) × 100
 
                 const acertoPorcetagem = (state.correctAnswer / state.questions.length) * 100
                 state.porcentagemDeAcerto = Math.round(acertoPorcetagem) 

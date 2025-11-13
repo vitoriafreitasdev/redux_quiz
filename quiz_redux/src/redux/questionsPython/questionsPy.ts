@@ -1,5 +1,7 @@
+
 const pythonQuest = [
   {
+    number: 1,
     question: "O que é o GIL (Global Interpreter Lock) em Python?",
     options: [
       "Um mecanismo que permite múltiplas threads executarem simultaneamente",
@@ -10,6 +12,7 @@ const pythonQuest = [
     answer: "Um lock que permite apenas uma thread executar bytecode por vez",
   },
   {
+    number: 2,
     question: "Qual é a diferença entre 'is' e '==' em Python?",
     options: [
       "'is' compara valores, '==' compara identidades",
@@ -20,6 +23,7 @@ const pythonQuest = [
     answer: "'is' compara identidades, '==' compara valores",
   },
   {
+    number: 3,
     question: "O que são decoradores em Python?",
     options: [
       "Funções que modificam o comportamento de outras funções",
@@ -30,6 +34,7 @@ const pythonQuest = [
     answer: "Funções que modificam o comportamento de outras funções",
   },
   {
+    number: 4,
     question: "Qual é o propósito do método __init__ em uma classe Python?",
     options: [
       "Destruir o objeto quando não é mais necessário",
@@ -40,6 +45,7 @@ const pythonQuest = [
     answer: "Inicializar o objeto quando uma instância é criada",
   },
   {
+    number: 5,
     question: "O que são context managers em Python?",
     options: [
       "Funções que gerenciam o contexto de execução do programa",
@@ -50,6 +56,7 @@ const pythonQuest = [
     answer: "Objetos que gerenciam recursos usando 'with' statement",
   },
   {
+    number: 6,
     question: "Qual é a diferença entre list comprehension e generator expression?",
     options: [
       "List comprehension é mais rápida, generator é mais legível",
@@ -60,6 +67,7 @@ const pythonQuest = [
     answer: "List comprehension cria uma lista, generator cria um iterador lazy",
   },
   {
+    number: 7,
     question: "O que é monkey patching em Python?",
     options: [
       "Corrigir bugs automaticamente",
@@ -70,6 +78,7 @@ const pythonQuest = [
     answer: "Modificar classes ou módulos em runtime",
   },
   {
+    number: 8,
     question: "Qual é a função do método __slots__ em uma classe?",
     options: [
       "Permitir herança múltipla",
@@ -80,6 +89,7 @@ const pythonQuest = [
     answer: "Otimizar memória restringindo atributos",
   },
   {
+    number: 9,
     question: "O que é metaprogramação em Python?",
     options: [
       "Programação para metaverso",
@@ -89,7 +99,8 @@ const pythonQuest = [
     ],
     answer: "Código que escreve ou modifica outro código",
   },
-  {
+  {  
+    number: 10,
     question: "Qual é a diferença entre @staticmethod e @classmethod?",
     options: [
       "@staticmethod recebe a classe, @classmethod não recebe parâmetros",
@@ -97,9 +108,10 @@ const pythonQuest = [
       "Ambos são idênticos em funcionalidade",
       "@staticmethod é deprecated em Python 3"
     ],
-    answer: "@classmethod recebe a classe, @staticmethod não receve parâmetros especiais",
+    answer: "@classmethod recebe a classe, @staticmethod não recebe parâmetros especiais",
   },
   {
+    number: 11,
     question: "O que são dataclasses em Python?",
     options: [
       "Classes especiais para trabalhar com bancos de dados",
@@ -110,6 +122,7 @@ const pythonQuest = [
     answer: "Classes que automaticamente geram métodos como __init__ e __repr__",
   },
   {
+    number: 12,
     question: "Qual é o propósito do método __call__?",
     options: [
       "Tornar um objeto callable como uma função",
@@ -120,6 +133,7 @@ const pythonQuest = [
     answer: "Tornar um objeto callable como uma função",
   },
   {
+    number: 13,
     question: "O que é duck typing em Python?",
     options: [
       "Um sistema de tipagem estática",
@@ -130,6 +144,7 @@ const pythonQuest = [
     answer: "Focar na interface do objeto",
   },
   {
+    number: 14,
     question: "Qual é a diferença entre deep copy e shallow copy?",
     options: [
       "Shallow copy cria novos objetos para elementos aninhados",
@@ -140,6 +155,7 @@ const pythonQuest = [
     answer: "Deep copy cria novos objetos para todos os níveis",
   },
   {
+    number: 15,
     question: "O que são coroutines em Python?",
     options: [
       "Funções que rodam em paralelo com threads",
