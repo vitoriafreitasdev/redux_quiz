@@ -108,7 +108,7 @@ const pythonQuest = [
       "Ambos são idênticos em funcionalidade",
       "@staticmethod é deprecated em Python 3"
     ],
-    answer: "@classmethod recebe a classe, @staticmethod não recebe parâmetros especiais",
+    answer: "@classmethod recebe a classe, @staticmethod não recebe parâmetros especiais", 
   },
   {
     number: 11,
