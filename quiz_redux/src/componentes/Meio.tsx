@@ -19,7 +19,7 @@ const Meio = () => {
     <div className="main-div">
       <div className="quests-div">
         <h3>Questões</h3>
-        {questions.map((question, questionIndex) => (
+        {questions && questions.map((question, questionIndex) => (
           <div key={questionIndex} className="quest">
             <h2>{question.question}</h2>
               {question.options.map((option, optionIndex) => (
